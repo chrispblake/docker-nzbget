@@ -1,0 +1,16 @@
+version: "3"
+services:
+  nzbget:
+    image: linuxserver/nzbget
+    ports:
+      - "192.168.20.136:80:6789/tcp"
+    environment:
+      # enter your docker host IP here
+      PUID: 1000
+      PGID: 1000
+      TZ: "America/New_York"
+    # Add your own custom hostnames you need for your domain
+    volumes:
+      - "./config:/config"
+      - "./download:/downloads"
+    restart: always
